@@ -1,0 +1,14 @@
+For 1-5, refer to struct_ex.h:
+
+1. What is the byte alignment of the struct?
+
+2. What is the total size of the struct?
+
+3. What is the byte offset of the third field of the struct?
+
+4. How many bytes of padding are required for this struct?
+
+5. If we could rearrange the fields of the struct such that we
+   minimized padding, what would the minimum padding be?
+   Note that the arrangement may not be unique, so you don't
+   need to report it here.
