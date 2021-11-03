@@ -49,5 +49,5 @@ if __name__ == '__main__':
     with open("generated_problem/struct_ex.h", 'w+') as f:
         f.write(problem)
 
-    with open("generated_problem/struct_ex-sol.txt", 'w+') as f:
+    with open("generated_problem/answer.txt", 'w+') as f:
         f.write(solution)
