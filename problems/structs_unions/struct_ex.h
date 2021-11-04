@@ -6,4 +6,4 @@ typedef struct node {
     struct node *next;
     struct node *prev;
     char name[3];
-} node_t, nptr*;
+} node_t, *nptr;
