@@ -26,7 +26,12 @@ For 7-9, refer to union_ex.h:
 
 9. If we have the code:
    val_t val;
-   val.name = "CS429";
+   val.name[0] = 'C';
+   val.name[1] = 'S';
+   val.name[2] = '4';
+   val.name[3] = '2';
+   val.name[4] = '9';
+   val.name[5] = '\0';
 
    What is the value of val.a (in hex, removing any leading zeroes)?
    
