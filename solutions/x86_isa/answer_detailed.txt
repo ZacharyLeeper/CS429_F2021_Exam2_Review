@@ -1,0 +1,26 @@
+1. There's 15 general-purpose registers: %rax, %rbx,
+   %rcx, %rdx, %rdi, %rsi, %rsp, %rbp, %r8-%15
+
+2. This is just something to remember. Your exam states
+   in the instructions that you're using ATT syntax, just
+   make sure to remember the implications of that!
+
+3. We only ever modify %rdi by moving the value 5 into it.
+
+4. We first zero out %rsi by xoring it with itself (remember,
+   this always produces zero). Then, we add 1, for a result of 1.
+
+5. We first move the value of %rdi (5) to %rdx, then shift
+   it to the left by %rsi (1), which is the same as multiplying
+   by 2, so our result is 10.
+
+6. We move the value 0x7FFFFFFF (Tmax) to %rcx initially, and then
+   add the value of %rsi (1) to it, which gives us 0x80000000.
+
+7-10: The final condition codes are set by the result of the
+   LAST arithmetic or test/cmp instruction, which in this case is
+   0x80000000. Using what we know about two's complement representation,
+   we know that this is negative, and that since it came from adding
+   two positive numbers, we have a signed overflow. Therefore, the
+   SF and OF flags are set. The result is not zero, and it's not from
+   an unsigned overflow, so ZF and CF are not set.
