@@ -1,0 +1,30 @@
+1. How many general-purpose registers are there?
+
+2. For this class, most instructions use the syntax:
+   <instruction>    <source>, <dest>
+   What's this syntax called?
+
+For 3-10, consider the assembly code:
+   movq $5, %rdi
+   xorq %rsi, %rsi
+   addq $1, %rsi
+   movq %rdi, %rdx
+   shlq %rsi, %rdx
+   movq 0x7FFFFFFF, %rcx
+   addq %rsi, %rcx
+
+3. What's the resulting value of %rdi?
+
+4. What's the resulting value of %rsi?
+
+5. What's the resulting value of %rdx?
+
+6. What's the resulting value of %rcx (in hex)?
+
+7. What's the resulting value of ZF?
+
+8. What's the resulting value of SF?
+
+9. What's the resulting value of CF?
+
+10. What's the resulting value of OF?
