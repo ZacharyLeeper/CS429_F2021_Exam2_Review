@@ -10,7 +10,7 @@ For 3-11, consider the assembly code:
    addl $1, %rsi
    movq %rdi, %rdx
    shlq %rsi, %rdx
-   movl $0x7FFFFFFF, %rcx
+   movl $0x7FFFFFFF, %ecx
    addl %esi, %ecx
    leaq 0xC(%rdi, %rsi, 4), %r8
 
