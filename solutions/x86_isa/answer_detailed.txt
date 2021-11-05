@@ -1,4 +1,4 @@
-1. There's 15 general-purpose registers: %rax, %rbx,
+1. There's 16 general-purpose registers: %rax, %rbx,
    %rcx, %rdx, %rdi, %rsi, %rsp, %rbp, %r8-%15
 
 2. This is just something to remember. Your exam states
