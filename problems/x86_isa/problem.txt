@@ -1,0 +1,45 @@
+1. How many general-purpose registers are there?
+
+2. For this class, most instructions use the syntax:
+   <instruction>    <source>, <dest>
+   What's this syntax called?
+
+For 3-11, consider the assembly code:
+   movq $5, %rdi
+   xorq %rsi, %rsi
+   addq $1, %rsi
+   movq %rdi, %rdx
+   shlq %rsi, %rdx
+   movq 0x7FFFFFFF, %rcx
+   addq %rsi, %rcx
+   leaq $12(%rdi, %rsi, 4), %r8
+
+3. What's the resulting value of %rdi?
+
+4. What's the resulting value of %rsi?
+
+5. What's the resulting value of %rdx?
+
+6. What's the resulting value of %rcx (in hex)?
+
+7. What's the resulting value of %r8? 
+
+8. What's the resulting value of ZF?
+
+9. What's the resulting value of SF?
+
+10. What's the resulting value of CF?
+
+11. What's the resulting value of OF?
+
+12. This isn't necessarily specific to the ISA, but
+   what endianness is implied when we ask you to
+   assume an x86 architecture?
+
+13. What does an instruction ending in b signify?
+
+14. What does an instruction ending in w signify?
+
+15. What does an instruction ending in l signify?
+
+16. What does an instruction ending in q signify?

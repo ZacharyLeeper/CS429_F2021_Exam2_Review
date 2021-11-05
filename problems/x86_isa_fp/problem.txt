@@ -1,0 +1,18 @@
+Let %rdi = 0x1000, and let the address 0x1000 in
+memory correspond to the bytes 15 34 36 78 39 48 24 10.
+Consider the assembly code below:
+    vmovss      (%rdi), %xmm1
+    vmovsd      (%rdi), %xmm2
+    movl        $15, %esi
+    vcvtsi2ss   %esi, %xmm3, %xmm3
+    vaddss      %xmm3, %xmm3, %xmm3
+
+1. What does a floating point instruction ending in s signify?
+
+2. What does a floating point instruction ending in d signify?
+
+3. What is the resulting value in register %xmm1 (hex)?
+
+4. What is the resulting value in register %xmm2 (hex)?
+
+5. What is the resulting value in register %xmm3 (hex)?

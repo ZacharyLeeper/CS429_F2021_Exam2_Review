@@ -1,4 +1,4 @@
-For 1-5, refer to struct_ex.h:
+For 1-6, refer to struct_ex.h:
 
 1. What is the byte alignment of the struct?
 
@@ -9,6 +9,29 @@ For 1-5, refer to struct_ex.h:
 4. How many bytes of padding are required for this struct?
 
 5. If we could rearrange the fields of the struct such that we
+   minimized padding, what would the size of the struct be?
+
+6. If we could rearrange the fields of the struct such that we
    minimized padding, what would the minimum padding be?
-   Note that the arrangement may not be unique, so you don't
-   need to report it here.
+
+For 7-9, refer to union_ex.h:
+
+7. What is the size of the union?
+
+8. If we have the code:
+   val_t val;
+   val.a = 257;
+
+   What is the value of val.c (in hex, removing any leading zeroes)?
+
+9. If we have the code:
+   val_t val;
+   val.name[0] = 'C';
+   val.name[1] = 'S';
+   val.name[2] = '4';
+   val.name[3] = '2';
+   val.name[4] = '9';
+   val.name[5] = '\0';
+
+   What is the value of val.a (in hex, removing any leading zeroes)?
+   

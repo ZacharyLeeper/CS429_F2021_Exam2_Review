@@ -1,0 +1,11 @@
+%rdi, %rsi, %rdx, %rcx, %8, %r9
+%rax
+callee-save
+long
+int
+x>y
+x-y
+x+y
+3
+4
+4

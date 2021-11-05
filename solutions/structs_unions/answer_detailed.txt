@@ -1,0 +1,66 @@
+For 1-4, it helps to visualize the struct, like so:
+
+#####################################################
+#     val    # c #---------#       array[0]         #
+#####################################################
+0            4   5         8                        16
+
+######################################################
+#       array[1]           #         next            #
+######################################################
+16                         24                        32
+
+######################################################
+#         prev             #  name   #---------------#
+######################################################
+32                         40        43              48
+
+Where each field is labeled with its name, in a space corresponding
+to the space it takes up. The offset of each field is labelled below it.
+
+
+1. The struct is aligned to 8 bytes, because the largest basic-typed 
+   field it contains is 8 bytes (a pointer in this case).
+
+2. The total size of the struct is 48 bytes, which we get from adding
+   the size of each field (40 bytes in total) with the total amount of
+   padding required (8 bytes, which will be explained in parts 3 and 4).
+
+3. The offset of the third field (array) is 8 bytes, because the size
+   of val is 4 bytes (doesn't need to be aligned since it's the first
+   field) and the size of c is 1 byte (not aligned as chars never need
+   to be), leading to a total of 5 bytes. Because its is an array of
+   int pointers, we know it has to be aligned to 8 bytes, so we add 3
+   bytes of padding as well, for a total of 8 bytes.
+
+4. The total padding required for the struct is 8 bytes. There are 3
+   bytes of padding to align array, as discussed in part 3, and
+   by adding up the rest of the fields in the struct (none of which have
+   to be aligned), we get a total of 43 bytes. However, for this struct
+   to satisfy the array rule (such that if we wanted to make an array of
+   this struct, we could assume the start of each element was properly
+   aligned), we need to pad the end of the struct to be aligned to 8
+   bytes, as we learned in part 1. This requires 5 bytes of padding,
+   bringing the total bytes of padding up to 8.
+
+5-6. We can move the name field to just after the c field, to eliminate
+   the required padding for the array field. This way, we no longer have
+   to pad the end of the struct either, bringing our total size down to
+   40 bytes, with 0 bytes of padding. Remember that we can always
+   rearrange a struct's fields from largest to smallest to minimize padding!
+
+7. Alignment applies to unions too! (It's just very unlikely to show up,
+   as all basic data types take up a power of 2 bytes. I actually made
+   this example intentionally odd, to illustrate the point.) The largest
+   basic data type in the union is an int, so we need to be aligned to
+   4 bytes. However, there's also an array of 6 characters, so we need
+   to pad the union to a total of 8 bytes.
+
+8-9. These questions are asking similar things, just to make sure you
+   know how unions work. In 8, we set val.a to 257, which has a bit
+   representation of 0...0100000001. val.c is a char, however, so its
+   value truncates to 00000001 when read. 9 is the same idea, but a bit
+   more involved. We set the array of characters to "CS429", and we read
+   from val.a, which is an int, so we take the first 4 bytes of this.
+   Remember, these bytes are read as little-endian, so the result is
+   the ASCII representation of "24SC", or 0x32345343.
