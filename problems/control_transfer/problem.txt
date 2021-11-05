@@ -1,0 +1,56 @@
+1. Which registers does a callq instruction update?
+
+2. Which registers does a retq instruction update?
+
+3. Suppose we were given the following assembly code. Let's say we know that before the execution of fun begins, %rsp stores 0x500.
+
+	fun:
+		pushq 0x5
+		callq 0x1000	# Line 1
+		callq foo	# Line 2
+		ret
+
+	0x1000:
+		pushq 0x10
+		cmpq %rip, 0x1000
+		je .L1		# Line 3
+		popq %rdx	# Line 4
+		ret		# Line 5
+	.L1:	
+		pushq 0x15	
+		ret		# Line 6		
+
+	foo:
+		popq %rax
+		ret		# Line 7
+
+	
+4. What will be the value of %rsp before line 1 executes?
+
+5. What will be the value of (%rsp) before line 1 executes?
+
+6. What line number will be executed next after the instruction at line 3 is completed?
+
+7. What will %rdx store after line 4 executes?
+
+Now, suppose we know the "callq 0x1000" instruction on line 1 takes up 5 bytes, and starts at address 0x1500.
+
+8. What will be the value of %rsp before line 5 executes?
+
+9. What will be the value of (%rsp) before line 5 executes?
+
+10. What will be the value of %rip after line 5 executes?
+
+11. What will be the value of %rsp before line 7 executes?
+
+12. What will be the value of (%rsp) before line 7 executes?
+
+13. What will be the value of %rip after line 7 executes? 
+
+Let's say we somehow managed to get to label .L1 and begin executing the instructions it contains.
+
+11. What would %rip store after line 6 executes?
+
+12. What would %rsp store after line 6 executes?
+
+13. What would (%rsp) store after line 6 executes?
