@@ -17,10 +17,14 @@
 6. We move the value 0x7FFFFFFF (Tmax) to %rcx initially, and then
    add the value of %rsi (1) to it, which gives us 0x80000000.
 
-7-10: The final condition codes are set by the result of the
+7. We use leaq to compute the effective address of $12(%rdi, %rsi, 4),
+   which is 12 + %rdi (5) + 4*%rsi (1) = 21.
+
+8-11: The final condition codes are set by the result of the
    LAST arithmetic or test/cmp instruction, which in this case is
    0x80000000. Using what we know about two's complement representation,
    we know that this is negative, and that since it came from adding
    two positive numbers, we have a signed overflow. Therefore, the
    SF and OF flags are set. The result is not zero, and it's not from
-   an unsigned overflow, so ZF and CF are not set.
+   an unsigned overflow, so ZF and CF are not set. Remember, leaq does
+   not set condition codes!

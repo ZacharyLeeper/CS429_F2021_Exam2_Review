@@ -2,7 +2,7 @@
 
 This is a set of review problems for the CS 429 F2021 class's second exam.
 It covers everything learned in the middle third of the class, including structs, unions, x-86 architecture, and code generation strategies for various code forms.
-As a disclaimer, I made these problems harder than you can reasonably expect to see on the exam, so that you are more well prepared. Don't be afraid if you think the exam will be exactly like this!
+As a disclaimer, I made some of these problems harder than you can reasonably expect to see on the exam, so that you are more well prepared. Don't be afraid if you think the exam will be exactly like this!
 
 # Overview
 

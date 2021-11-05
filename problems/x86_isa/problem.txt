@@ -12,6 +12,7 @@ For 3-10, consider the assembly code:
    shlq %rsi, %rdx
    movq 0x7FFFFFFF, %rcx
    addq %rsi, %rcx
+   leaq $12(%rdi, %rsi, 4), %r8
 
 3. What's the resulting value of %rdi?
 
@@ -21,10 +22,12 @@ For 3-10, consider the assembly code:
 
 6. What's the resulting value of %rcx (in hex)?
 
-7. What's the resulting value of ZF?
+7. What's the resulting value of %r8? 
 
-8. What's the resulting value of SF?
+8. What's the resulting value of ZF?
 
-9. What's the resulting value of CF?
+9. What's the resulting value of SF?
 
-10. What's the resulting value of OF?
+10. What's the resulting value of CF?
+
+11. What's the resulting value of OF?
