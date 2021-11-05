@@ -10,9 +10,9 @@ For 3-11, consider the assembly code:
    addq $1, %rsi
    movq %rdi, %rdx
    shlq %rsi, %rdx
-   movq 0x7FFFFFFF, %rcx
+   movq $0x7FFFFFFF, %rcx
    addq %rsi, %rcx
-   leaq $12(%rdi, %rsi, 4), %r8
+   leaq 0xC(%rdi, %rsi, 4), %r8
 
 3. What's the resulting value of %rdi?
 

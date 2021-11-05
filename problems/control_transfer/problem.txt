@@ -49,8 +49,8 @@ Now, suppose we know the "callq 0x1000" instruction on line 1 takes up 5 bytes, 
 
 Let's say we somehow managed to get to label .L1 and begin executing the instructions it contains.
 
-11. What would %rip store after line 6 executes?
+14. What would %rip store after line 6 executes?
 
-12. What would %rsp store after line 6 executes?
+15. What would %rsp store after line 6 executes?
 
-13. What would (%rsp) store after line 6 executes?
+16. What would (%rsp) store after line 6 executes?

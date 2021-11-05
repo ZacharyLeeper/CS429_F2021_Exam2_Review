@@ -11,7 +11,8 @@ def compare_solution(student_answer, solution):
     for answer, sol in zip(student_answer.readlines(), solution.readlines()):
         if answer.lower() != sol.lower():
             correct.append(False)
-    correct.append(True)
+        else:
+            correct.append(True)
     return correct
 
 def print_results(dir, correct_answers):
@@ -31,7 +32,7 @@ if __name__ == "__main__":
             solution = os.path.join('problems', args.dir, 'generated_problem', 'answer.txt')
         else:
             student_answer = os.path.join('problems', args.dir, 'sol.txt')
-            solution = os.path.join('solutions', args.dir, 'sol.txt')
+            solution = os.path.join('solutions', args.dir, 'answer.txt')
         with open(student_answer, 'r') as f:
             with open(solution, 'r') as g:
                 correct_answers = compare_solution(f,g)
