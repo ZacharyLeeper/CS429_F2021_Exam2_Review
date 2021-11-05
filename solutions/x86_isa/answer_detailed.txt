@@ -31,3 +31,7 @@
 
 12. You need to memorize this! It's easy to do problems correctly and
    get tripped up by not accounting for little-endianness.
+
+13-16: Again, stuff to memorize. Byte is 1 byte (char in C), Word is
+   2 bytes (short in C), Long Word is 4 bytes (int/float in C), Quad Word
+   is 8 bytes (long/double/pointer in C).

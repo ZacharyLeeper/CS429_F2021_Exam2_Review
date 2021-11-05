@@ -35,3 +35,11 @@ For 3-11, consider the assembly code:
 12. This isn't necessarily specific to the ISA, but
    what endianness is implied when we ask you to
    assume an x86 architecture?
+
+13. What does an instruction ending in b signify?
+
+14. What does an instruction ending in w signify?
+
+15. What does an instruction ending in l signify?
+
+16. What does an instruction ending in q signify?
