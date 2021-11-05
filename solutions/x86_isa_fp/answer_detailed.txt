@@ -1,0 +1,13 @@
+1-2. Memorization. s stands for single precision (float in C),
+   and d stands for double precision (double in C).
+
+3. vmovss is for 4-byte quantities, so we moved the bytes 15 34
+   36 78 to %xmm1, but because this machine is little-endian, they're
+   read as 0x78363415.
+
+4. Similar to 3, but now we have an 8-byte quantity. The value read in
+   is 0x1024483978363415.
+
+5. We first read in the integer value 15, and convert it to a floating
+   point value in %xmm3. Then, we add it to itself, so our result should
+   be 30 in floating point representation, which is 0x41F00000.

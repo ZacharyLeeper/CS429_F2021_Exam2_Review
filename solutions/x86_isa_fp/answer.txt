@@ -1,0 +1,5 @@
+single precision
+double precision
+0x78363415
+0x1024483978363415
+0x41F00000
