@@ -13,7 +13,7 @@ There are two self-explanatory directories contained in this repository.
 The `problems` directory contains the practice problems, and the `solutions` directory contains documented solutions for each problem.
 
 Inside the problems directory, there are subdirectories for each problem type, for different topics covered in class.
-A file named `example_problem.txt` in the directory will have a corresponding`example_problem-sol.txt` in the solutions directory, with a detailed explanation.
+A file named `problem.txt` in the directory will have a corresponding`answer.txt` in the solutions directory, with a detailed explanation.
 Most problems will also have corresponding C or Assembly code files, which will follow the same naming scheme.
 
 # Testing Your Answers
