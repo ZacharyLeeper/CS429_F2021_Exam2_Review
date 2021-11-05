@@ -28,3 +28,6 @@
    SF and OF flags are set. The result is not zero, and it's not from
    an unsigned overflow, so ZF and CF are not set. Remember, leaq does
    not set condition codes!
+
+12. You need to memorize this! It's easy to do problems correctly and
+   get tripped up by not accounting for little-endianness.

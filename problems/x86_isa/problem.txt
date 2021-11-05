@@ -4,7 +4,7 @@
    <instruction>    <source>, <dest>
    What's this syntax called?
 
-For 3-10, consider the assembly code:
+For 3-11, consider the assembly code:
    movq $5, %rdi
    xorq %rsi, %rsi
    addq $1, %rsi
@@ -31,3 +31,7 @@ For 3-10, consider the assembly code:
 10. What's the resulting value of CF?
 
 11. What's the resulting value of OF?
+
+12. This isn't necessarily specific to the ISA, but
+   what endianness is implied when we ask you to
+   assume an x86 architecture?

@@ -9,7 +9,7 @@ def compare_solution(student_answer, solution):
     # Return False for incorrect and True for correct
     correct = []
     for answer, sol in zip(student_answer.readlines(), solution.readlines()):
-        if answer != sol:
+        if answer.lower() != sol.lower():
             correct.append(False)
     correct.append(True)
     return correct
