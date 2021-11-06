@@ -21,7 +21,7 @@ def generate_solution(sizes):
     total_size = 0
     padding = 0
     for size in sizes:
-        pad = -total_size % size
+        pad = -total_size % min(size, 8)
         padding += pad
         total_size += size + pad
     padding += -total_size % alignment
@@ -33,7 +33,7 @@ def generate_solution(sizes):
     sizes.sort()
     sizes.reverse()
     for size in sizes:
-        pad = -min_size % size
+        pad = -min_size % min(size, 8)
         min_padding += pad
         min_size += size + pad
         
