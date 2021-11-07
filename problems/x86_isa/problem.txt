@@ -6,12 +6,12 @@
 
 For 3-11, consider the assembly code:
    movq $5, %rdi
-   xorq %rsi, %rsi
-   addq $1, %rsi
+   xorl %rsi, %rsi
+   addl $1, %rsi
    movq %rdi, %rdx
    shlq %rsi, %rdx
-   movq $0x7FFFFFFF, %rcx
-   addq %rsi, %rcx
+   movl $0x7FFFFFFF, %ecx
+   addl %esi, %ecx
    leaq 0xC(%rdi, %rsi, 4), %r8
 
 3. What's the resulting value of %rdi?
