@@ -47,7 +47,7 @@ Now, suppose we know both the "callq 0x1000" and "callq foo" instructions on lin
 
 12. What will be the value of %rip after line 7 executes? 
 
-Let's say we somehow managed to get to label .L1 and begin executing the instructions it contains.
+Let's say the jump on line 3 somehow succeeded, and we managed to get to label .L1 and begin executing the instructions it contains.
 
 13. What would %rip store after line 6 executes?
 

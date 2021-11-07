@@ -1,0 +1,45 @@
+1. Callq will push the return address onto the stack, then update the program counter to point to the start of the called function. Therefore, it updates both %rsp (the stack pointer), and
+%rip (the program counter).
+
+2. Retq is essentially a complementary instruction to callq. It pops the return address off the stack, then updates the program counter to point to the return address. Therefore, it also 
+updates both %rsp and %rip.
+
+3. It's given that %rsp starts out with a value of 0x500. Before line 1 executes, the only instruction was a pushq, which will decrement the stack pointer by 8 bytes and move a value into 
+that memory address. So, the new value of %rsp = 0x500 - 0x8 = 0x4F8.
+
+4. The instruction before line 1 was a pushq 0x5 instruction. This decrements %rsp by 8 and moves 0x5 into the memory address, making (%rsp) now store 0x5.
+
+5. Right after the instruction on line 1 executes, %rip will store 0x1000. However, the instruction on line 3 is several instructions after the start of the function. Since %rip will have been
+updated after each instruction, it no longer will store 0x1000, meaning the je .L1 instruction won't trigger. Therefore, the next executed instruction will be on line 4.
+
+6. Earlier in the function, we had a pushq 0x10. Since there weren't any instructions after that which changed %rsp or (%rsp), 0x10 is currently stored at (%rsp). 
+So, when we perform popq %rdx, the value at the top of the stack will be popped off and moved into %rdx, meaning %rdx now stores 0x10.
+
+7. We know from Q3 that %rsp will be 0x4F8 before line 1 executes. So, after line 1 executes, we will have pushed the return address to the stack, meaning %rsp is now 0x4F8 - 0x8 = 0x4F0.
+Inside the function starting at address 0x1000, we have both a pushq and popq, which will leave %rsp unchanged after both instructions execute. Therefore, %rsp will store 0x4F0 before line 5.
+
+8. (%rsp) must currently store the return address that was pushed by the instruction on line 1, since the pushq and popq instructions in the function starting at address 0x1000 will basically
+cancel each other out. So, we just have to figure out what the return address was after the line 1 instruction executed. It's given that this instruction started at address 0x1500, and each 
+callq instruction is 5 bytes. Therefore, the return address that was pushed on must be the start of the instruction on line 2, which will be at address 0x1500 + 0x5 = 0x1505.
+
+9. The ret instruction on line 5 will pop off the return address and move it into %rip. We know from the previous question that this return address was 0x1505, so %rip will now store 0x1505.
+
+10. After the ret instruction on line 5 executes, because the return address will be popped off, %rsp will now store 0x4F0 + 0x8 = 0x4F8. When we then execute the callq foo instruction on line 2,
+we will once again push the return address, making %rsp now store 0x4F8 - 0x8 = 0x4F0. Finally, inside the foo function, the first instruction is to popq into %rax. This will increment the stack
+pointer by 8 bytes, making the new value of %rsp = 0x4F0 + 0x8 = 0x4F8 before line 7 executes.
+
+11. Note that the popq %rax instruction inside foo will pop off the return address pushed on by the callq foo instruction. All that's left on the stack is then the 0x5 that was pushed by 
+the first instruction in fun. So, (%rsp) will store 0x5. 
+
+12. After the ret on line 7 executes, we'll pop off whatever's at the top of the stack and move it into %rip. In this case, that is 0x5, which will be what %rip now stores. Note that will 
+return us to the wrong place, since we lost the actual return address through the popq %rax instruction.
+
+13. Right before line 6, we have a pushq 0x15 instruction. When we return on line 6, this 0x15 will get popped off and moved into %rip.
+
+14. At the start of the function starting at address 0x1000, %rsp stores 0x4F0. After the immediate pushq 0x10 instruction, %rsp will store 0x4F0 - 0x8 = 0x4E8. If the jump on line 3 were 
+successful, the pushq 0x15 instruction at .L1 would decrement %rsp one more time, making it 0x4E8 - 0x8 = 0x4E0. Finally, the ret instruction on line 6 will increment %rsp by 8 bytes, making 
+it 0x4E0 + 0x8 = 0x4E8.
+
+15. After line 6 executes, the 0x15 that was pushed in the instruction right before will be popped off. This leaves the 0x10 at the top of the stack, which was pushed by the first pushq instruction
+in the function starting at address 0x1000. So, (%rsp) will store 0x10.
+
