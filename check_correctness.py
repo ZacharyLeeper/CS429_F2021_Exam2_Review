@@ -49,5 +49,4 @@ if __name__ == "__main__":
                     with open(solution, 'r') as g:
                         correct_answers = compare_solution(f,g)
                         print_results(args.dir, correct_answers)
-                
-
+                        
