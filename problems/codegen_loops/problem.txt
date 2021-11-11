@@ -1,0 +1,65 @@
+For these problems, use the provided assembly code below.
+This code was compiled with gcc -o problem.s -S problem.c -O0.
+
+foo:
+	pushq	%rbp
+	movq	%rsp, %rbp
+	movl	%edi, -20(%rbp)
+	movl	$1, -4(%rbp)
+	jmp	.L2
+.L3:
+	sall	-4(%rbp)
+	addl	$1, -20(%rbp)
+.L2:
+	cmpl	$9, -20(%rbp)
+    jle     .L3
+	movl	-4(%rbp), %eax
+	popq	%rbp
+	ret
+
+1. What is the code generation strategy gcc used to
+   compile this loop?
+
+2. Suppose foo was called with %edi holding the value 3.
+   What would the return value be?
+
+3. Which label contains the body of the loop?
+
+4. Which label contains the loop condition?
+
+
+Now, this is the same C code, but it was instead
+compiled with gcc -o problem.s -S problem.c -O1.
+
+foo:
+	cmpl	$9, %edi
+	jg	.L4
+	movl	$1, %eax
+.L3:
+	addl	%eax, %eax
+	addl	$1, %edi
+	cmpl	$10, %edi
+	jne	.L3
+	ret
+.L4:
+	movl	$1, %eax
+	ret
+
+5. Note that the code generation strategy has changed. 
+   What is the code generation strategy gcc used to
+   compile the loop this time?
+
+6. Which label contains the body of the loop?
+
+7. Which label contains the loop condition?
+
+8. Suppose foo was called with %edi holding the
+   value 5. How many times will the label .L3
+   be reached?
+
+9. Consider that in the first iteration of the assembly
+   code, the update for the return value (say it was declared
+   as 'int a' in C) was sall -4(%rbp) (in other words, a = a << 1).
+   In the second iteration, the update was addl %eax, %eax (or
+   a += a). Suppose the actual update in C code was a OP 2. What
+   must OP be?

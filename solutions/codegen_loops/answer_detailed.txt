@@ -1,0 +1,43 @@
+1. We can see that the code generation strategy used
+   here was jump-to-middle, becuase we immediately jump
+   to the loop condition.
+
+2. We can see that with each loop iteration, the value
+   in -4(%rbp) gets shifted to the left by 1 (as there is
+   only one register/value provided). So, if we loop until
+   the original value of %edi is greater than 9, we will
+   loop a total of 7 times, we should have 1 shifted to the
+   left a total of 6 times, or 128. 
+
+3. We can see that the arithmetic operations updating
+   the return value and loop condition variable are
+   contained in .L3.
+
+4. We can see that the comparisons and conditional jumps
+   are contained in .L2.
+
+5. Assuming you got 1 correct, this has to be guarded-do
+   simply by process of elimination (that is, jump-to-middle
+   and guarded-do are the only code generation strategies
+   used to compile while loops). Of course, we can also see
+   that an initial loop condition check is done before entering
+   the loop, indicating that this is in fact guarded-do.
+
+6-7. Both loop updates and checking the loop condition
+   are done in .L3. I suppose you might argue that foo also
+   has loop checking, but we don't count this because it's
+   outside the loop.
+
+8. Similar to 2, we just add 1 to %edi with each loop
+   iteration, and once we're equal to 10, we have finished
+   the loop. So, we reach .L3 once just by not taking the first
+   jump, then loop 4 more times, for a total of 5 visits to .L3.
+
+9. Both of these updates are computing a*2, so the answer
+   must be *= (that is, a *= 2). Just a refresh, shifting
+   n bits to the left is equivalent to multiplying by 2^n,
+   and shifting n bits to the right is equivalent to dividing
+   by 2^n. I guess you could technically also have 'a*' (for
+   a = a*2) as a valid answer as well, but you'll be given a
+   multiple choice format for questions where this might
+   be ambiguous.
